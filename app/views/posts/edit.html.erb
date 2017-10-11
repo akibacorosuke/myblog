@@ -1,0 +1,22 @@
+<h2>Edit</h2>
+<%= form_for :post, url: post_path(@post) do |f| %>
+<p>
+  <%= f.text_field :title, placeholder: 'タイトルを入れてください'%>
+  <% if @post.errors.messages[:title].any? %>
+  <span class="error"><%= @post.errors.messages[:title][0] %></span> 
+  <% end %> 
+</p>
+<p>
+  <%= f.text_area :body, placeholder: '内容を入れてください' %>
+  <% if @post.errors.messages[:body].any? %>
+  <span class="error"><%= @post.errors.messages[:body][0]%></span>
+  <% end %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>	
+
+<p>
+  <%= link_to 'back', posts_path %>
+</p>
